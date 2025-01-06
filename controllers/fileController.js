@@ -23,10 +23,11 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   limits: { fileSize: 20 * 1024 * 1024 }, // Limit files to 20 MB
-}).array('files');
+}).array('images[]');
 
 // Upload files and return Dropbox links
 const uploadFiles = async (req, res) => {
+  console.log('called')
   try {
     const files = req.files;
 
